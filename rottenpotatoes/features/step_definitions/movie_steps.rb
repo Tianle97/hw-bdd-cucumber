@@ -4,8 +4,8 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-  movie.new(movie).save
-  movie.create(movie)
+  
+  Movie.create(movie)#Add movie to table
   end
   @movies = Movie.all 
 end
@@ -20,7 +20,6 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  e1<=>e2
   fail "Unimplemented"
 end
 
@@ -45,4 +44,6 @@ end
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
   fail "Unimplemented"
+  page.body.scan(/<tr/).length.should equal(Movie.all.length + 1)
+
 end
