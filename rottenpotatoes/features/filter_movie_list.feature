@@ -24,10 +24,10 @@ Background: movies have been added to database
 
 Scenario: restrict to movies with 'PG' or 'R' ratings
   
-  When I check the following ratings: PG, R
+  When I check the following ratings: PG,R
   # enter step(s) to check the 'PG' and 'R' checkboxes
   
-  When I uncheck the following ratings: PG-13, G
+  When I uncheck the following ratings: PG-13,G
   # enter step(s) to uncheck all other checkboxes
   
   And I press "Refresh"
@@ -45,4 +45,4 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 Scenario: all ratings selected
   When I check the following ratings: PG,R,PG-13,G
   And I press "Refresh"
-  Then I should see all movies
+  Then I should see all the movies
